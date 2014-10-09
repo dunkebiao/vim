@@ -1,52 +1,91 @@
-filetype off
+"----------其他相关-----------------
+set nocompatible                "不要使用vi的键盘模式，而是vim自己的
+set history=100                 " history文件中需要记录的行数
+set autoread                    " 当文件在外部被修改时，自动重新读取
+set smartindent
+
+"文件编码
+set fenc=utf-8
+set fencs=utf-8,gb2312
+
+set shortmess=atI               " 去掉欢迎界面
+set nu                          " 显示行号
+set showmatch                   " 显示匹配的括号
+set nobackup                    " 关闭备份
+set showcmd                     " 显示命令
+set ai                          " 自动缩进
+set si                          " 智能缩进
+set encoding=utf-8              "显示所用的编码（取决于“LANG环境变量”）
+set incsearch                   "搜索时，输入的词句的逐字符高亮
+set hlsearch                    "让查找到的字符串高亮显示（：nohlsearch可关闭）
+set laststatus=2                "总是显示状态栏
+set iskeyword+=_,$,@,%,#,-      "带有如下符号的单词不要被换行分割
+set ignorecase                  "在搜索的时候忽略大小写
+set guifont=Monaco:h13   "设置字体
+" tab转化为4个字符
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+
+syntax on                       "让语法高亮显示
+filetype on                     "侦测文件类型
+filetype plugin on              "载入文件类型插件
+filetype indent on              "为特定文件类型载入相关缩进文件
+colorscheme koehler             "vim三种配色方案desert default
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'L9'                " vim 脚本库
-Plugin 'mtth/locate.vim'   " 文件搜索
 
-Plugin 'godlygeek/tabular' " 表格对其
+"vim 脚本库插件
+Plugin 'L9'
 
+"文件搜索插件
+Plugin 'mtth/locate.vim'
+
+"表格对其插件
+Plugin 'godlygeek/tabular'
+
+"分屏差价
 Plugin 'taglist.vim'
 let Tlist_Show_One_File=1                  " 不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow=1                " 如果taglist窗口是最后一个窗口，则退出vim
-" let Tlist_Auto_Open = 1                  " 启动VIM，自动打开taglist
+let Tlist_Auto_Open = 1                  " 启动VIM，自动打开taglist
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " 将taglist与ctags关联
 let Tlist_Use_Right_Window = 1             " taglist窗口居左
 let Tlist_GainFocus_On_ToggleOpen = 0      " 打开后不获取焦点到taglist窗口
 
-
+"极客目录插件
 Plugin  'The-NERD-tree'
 let NERDTreeWinPos='left'       "打开后居左
 let NERDChristmasTree=1
 let NERDTreeDirArrows=1
 "nmap <F2> :NERDTree <CR>
 
-Plugin 'comments.vim'      " 快速注释
-Plugin 'minibufexplorerpp' " 顶部标签
+"快速注释插件
+Plugin 'comments.vim'
 
-Plugin 'python.vim'        " python插件
+"全局内搜索变量函数
+Plugin 'cscope.vim'
+
+"顶部标签插件
+Plugin 'minibufexplorerpp'
+
+"python插件
+Plugin 'python.vim'
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
 
-Plugin 'pyflakes.vim'      "python 语法检查
+"python 语法检查插件
+Plugin 'pyflakes.vim'
 
-Plugin 'Pydiction'         "代码补全
+"python 代码补全插件
+Plugin 'Pydiction'
 let g:pydiction_location =  '$HOME/.vim/bundle/Pydiction/complete-dict'
 let g:pydiction_menu_height = 3
 
 call vundle#end()
-filetype plugin indent on
 
-"----------其他相关-----------------
-set autoindent " same level indent
-set smartindent " next level indent
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set fenc=utf-8
-set fencs=utf-8,gb2312
-set nu
 "---------快捷键--------------------
 map <F5> :!python % <CR>
