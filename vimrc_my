@@ -1,4 +1,6 @@
-"----------其他相关-----------------
+ 
+"----------vim配置-----------------
+
 set nocompatible                "不要使用vi的键盘模式，而是vim自己的
 set history=100                 " history文件中需要记录的行数
 set autoread                    " 当文件在外部被修改时，自动重新读取
@@ -18,11 +20,12 @@ set si                          " 智能缩进
 set encoding=utf-8              "显示所用的编码（取决于“LANG环境变量”）
 set incsearch                   "搜索时，输入的词句的逐字符高亮
 set hlsearch                    "让查找到的字符串高亮显示（：nohlsearch可关闭）
-set laststatus=2                "总是显示状态栏
+set laststatus=1                "总是显示状态栏
 set iskeyword+=_,$,@,%,#,-      "带有如下符号的单词不要被换行分割
 set ignorecase                  "在搜索的时候忽略大小写
-set guifont=Monaco:h13   "设置字体
-" tab转化为4个字符
+set guifont=Monaco:h13          "设置字体
+
+"tab转化为4个字符
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -32,7 +35,7 @@ syntax on                       "让语法高亮显示
 filetype on                     "侦测文件类型
 filetype plugin on              "载入文件类型插件
 filetype indent on              "为特定文件类型载入相关缩进文件
-colorscheme koehler             "vim三种配色方案desert default
+colorscheme default             "vim三种配色方案desert default
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -59,9 +62,11 @@ let Tlist_GainFocus_On_ToggleOpen = 0      " 打开后不获取焦点到taglist�
 "极客目录插件
 Plugin  'The-NERD-tree'
 let NERDTreeWinPos='left'       "打开后居左
-let NERDChristmasTree=1
-let NERDTreeDirArrows=1
-"nmap <F2> :NERDTree <CR>
+let NERDChristmasTree=1         "让Tree把自己给装饰得多姿多彩漂亮点
+let NERDTreeDirArrows=0         "目录箭头 1 显示箭头  0传统+-|号
+nmap <F2> :NERDTree <CR>
+nmap <S-TAB> <c-w>w
+autocmd VimEnter *  NERDTree
 
 "快速注释插件
 Plugin 'comments.vim'
@@ -69,13 +74,14 @@ Plugin 'comments.vim'
 "全局内搜索变量函数
 Plugin 'cscope.vim'
 
-"顶部标签插件
-Plugin 'minibufexplorerpp'
+"php插件
+Plugin 'php.vim-html-enhanced'
 
 "python插件
 Plugin 'python.vim'
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
+nmap <F5> :!python % <CR>
 
 "python 语法检查插件
 Plugin 'pyflakes.vim'
@@ -86,6 +92,3 @@ let g:pydiction_location =  '$HOME/.vim/bundle/Pydiction/complete-dict'
 let g:pydiction_menu_height = 3
 
 call vundle#end()
-
-"---------快捷键--------------------
-map <F5> :!python % <CR>
