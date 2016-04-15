@@ -47,14 +47,11 @@ Plugin 'L9'
 "文件搜索插件
 Plugin 'mtth/locate.vim'
 
-"表格对其插件
-Plugin 'godlygeek/tabular'
-
 "分屏差价
 Plugin 'taglist.vim'
 let Tlist_Show_One_File=1                  " 不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow=1                " 如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Auto_Open = 1                  " 启动VIM，自动打开taglist
+let Tlist_Auto_Open = 1                    " 启动VIM，自动打开taglist
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " 将taglist与ctags关联
 let Tlist_Use_Right_Window = 1             " taglist窗口居左
 let Tlist_GainFocus_On_ToggleOpen = 0      " 打开后不获取焦点到taglist窗口
@@ -67,15 +64,6 @@ let NERDTreeDirArrows=0         "目录箭头 1 显示箭头  0传统+-|号
 nmap <F2> :NERDTree <CR>
 nmap <S-TAB> <c-w>w
 autocmd VimEnter *  NERDTree
-
-"快速注释插件
-Plugin 'comments.vim'
-
-"全局内搜索变量函数
-Plugin 'cscope.vim'
-
-"php插件
-Plugin 'php.vim-html-enhanced'
 
 "python插件
 Plugin 'python.vim'
