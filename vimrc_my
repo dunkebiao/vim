@@ -83,7 +83,4 @@ set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
 nmap <F12> :!python % <CR>
 
-"python 语法检查插件
-Plugin 'pyflakes.vim'
-
 call vundle#end()
