@@ -86,9 +86,4 @@ nmap <F12> :!python % <CR>
 "python 语法检查插件
 Plugin 'pyflakes.vim'
 
-"python 代码补全插件
-Plugin 'Pydiction'
-let g:pydiction_location =  '$HOME/.vim/bundle/Pydiction/complete-dict'
-let g:pydiction_menu_height = 3
-
 call vundle#end()
