@@ -64,6 +64,8 @@ let NERDTreeDirArrows=0         "目录箭头 1 显示箭头  0传统+-|号
 nmap <F2> :NERDTree <CR>
 nmap <S-TAB> <c-w>w
 autocmd VimEnter *  NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif 
+autocmd  VimEnter * wincmd p
 
 "python插件
 Plugin 'python.vim'
